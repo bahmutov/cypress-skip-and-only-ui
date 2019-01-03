@@ -20,6 +20,9 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   const onClickSkip = () => {
     console.log('onClickSkip', title, spec)
   }
+  const onClickOnly = () => {
+    console.log('onClickOnly', title, spec)
+  }
   const buttons = (
     <span>
       {' '}
@@ -28,7 +31,11 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
         title='Skip this test'
         onClick={onClickSkip}
       />{' '}
-      <i className='fa fa-arrow-circle-left' title='Run only this test' />
+      <i
+        className='fa fa-arrow-circle-left'
+        title='Run only this test'
+        onClick={onClickOnly}
+      />
     </span>
   )
 
