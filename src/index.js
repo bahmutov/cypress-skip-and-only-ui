@@ -19,7 +19,12 @@ const getTests = rootRunnable => {
 const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   const onClickSkip = () => {
     console.log('onClickSkip', title, spec)
+    cy.task('skipTests', {
+      filename: spec.absolute,
+      title: [title]
+    })
   }
+
   const onClickOnly = () => {
     console.log('onClickOnly', title, spec)
     cy.task('onlyTests', {

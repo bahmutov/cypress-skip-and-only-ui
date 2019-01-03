@@ -1,7 +1,7 @@
-require('../../src')
+// require('../../src')
 
-it.only('works a', () => {})
-it('works b', () => {
+it.skip('works a', () => {})
+it.skip('works b', () => {
   throw new Error('nope')
 })
-it('works c', () => {})
+it.skip('works c', () => {})
