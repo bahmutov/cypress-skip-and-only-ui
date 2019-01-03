@@ -10,7 +10,7 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const { onlyTests, skipTests } = require('../../src/utils')
+const { onlyTests, skipTests, runAllTests } = require('../../src/utils')
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
@@ -23,6 +23,11 @@ module.exports = (on, config) => {
 
     skipTests: ({ filename, title }) => {
       skipTests(filename, [title])
+      return null
+    },
+
+    allTests: ({ filename, title }) => {
+      runAllTests(filename, [title])
       return null
     }
   })

@@ -34,6 +34,11 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   }
   const onNormal = () => {
     console.log('onNormal', title, spec)
+
+    cy.task('allTests', {
+      filename: spec.absolute,
+      title: [title]
+    })
   }
 
   const buttons = (

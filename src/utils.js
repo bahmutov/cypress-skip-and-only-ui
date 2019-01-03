@@ -153,9 +153,48 @@ const skipTests = (specFilename, skipTests) => {
   fs.writeFileSync(specFilename, output, 'utf8')
 }
 
+/**
+ * Removes all .only and .skip from spec file
+ */
+const runAllTests = specFilename => {
+  console.log('enable all tests in spec', specFilename)
+
+  const source = fs.readFileSync(specFilename, 'utf8')
+
+  const findSuites = (node, names = []) => {
+    if (!node) {
+      return
+    }
+
+    if (isDescribe(node) || isContext(node)) {
+      names.push(getItsName(node))
+    }
+
+    return findSuites(node.parent, names)
+  }
+
+  const enableAllTests = node => {
+    // console.log(node)
+
+    if (isItOnly(node)) {
+      const testName = [getItsName(node)]
+      console.log('found it.only', testName)
+      node.update('it' + node.source().substr(7))
+    } else if (isItSkip(node)) {
+      const testName = [getItsName(node)]
+      console.log('found it.skip', testName)
+      node.update('it' + node.source().substr(7))
+    }
+  }
+  const output = falafel(source, enableAllTests)
+  // console.log(output)
+  fs.writeFileSync(specFilename, output, 'utf8')
+}
+
 module.exports = {
   onlyTests,
-  skipTests
+  skipTests,
+  runAllTests
 }
 
 if (!module.parent) {
