@@ -10,6 +10,8 @@
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "3.1.4"
+    "cypress": "3.1.4",
+    "react": "16.7.0",
+    "react-dom": "16.7.0"
   }
 }
