@@ -1,6 +1,6 @@
-import '../../src'
+require('../../src')
 
-it('works a', () => {})
+it.only('works a', () => {})
 it('works b', () => {
   throw new Error('nope')
 })

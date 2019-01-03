@@ -22,7 +22,15 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   }
   const onClickOnly = () => {
     console.log('onClickOnly', title, spec)
+    cy.task('onlyTests', {
+      filename: spec.absolute,
+      title: [title]
+    })
   }
+  const onNormal = () => {
+    console.log('onNormal', title, spec)
+  }
+
   const buttons = (
     <span>
       {' '}
@@ -35,6 +43,11 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
         className='fa fa-arrow-circle-left'
         title='Run only this test'
         onClick={onClickOnly}
+      />{' '}
+      <i
+        className='fa fa-list-ul'
+        title='Remove skip or only'
+        onClick={onNormal}
       />
     </span>
   )

@@ -11,6 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "3.1.4",
+    "falafel": "2.1.0",
+    "ramda": "0.26.1",
     "react": "16.7.0",
     "react-dom": "16.7.0"
   }
