@@ -66,9 +66,16 @@ after(() => {
 
     const findParentTitles = (rt, title = []) => {
       title.push(rt.textContent)
-      const $parent = $(rt).parents('li.suite').find('.collapsible-header > .runnable-title')
+
+      const $parent = $(rt).parents('li.suite')
+
       if ($parent.length && $parent[0] !== rt) {
-        return findParentTitles($parent[0], title)
+        $parent.each((k, el) => {
+          const titleEl = el.querySelector('.collapsible-header > .runnable-title')
+          if (titleEl !== rt) {
+            title.push(titleEl.textContent)
+          }
+        })
       }
       return title
     }
