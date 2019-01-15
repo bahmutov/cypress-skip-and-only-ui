@@ -23,5 +23,7 @@
     "type": "git",
     "url": "https://github.com/bahmutov/cypress-skip-and-only-ui.git"
   },
-  "files": []
+  "files": [
+    "src"
+  ]
 }
