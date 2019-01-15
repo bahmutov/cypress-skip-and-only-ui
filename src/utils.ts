@@ -50,7 +50,7 @@ const getItsName = node => node.arguments[0].value
 /**
  * Given a spec filename and name of a test, sets "it.only" for give list of tests.
  */
-const onlyTests = (specFilename, leaveTests) => {
+export const onlyTests = (specFilename, leaveTests) => {
   console.log('onlyTests in spec', specFilename)
   console.log('leave tests', leaveTests)
 
@@ -103,7 +103,7 @@ const onlyTests = (specFilename, leaveTests) => {
 /**
  * Given a spec filename and name of a test, sets "it.skip" for give list of tests.
  */
-const skipTests = (specFilename, skipTests) => {
+export const skipTests = (specFilename, skipTests) => {
   console.log('skipTests in spec', specFilename)
   console.log('skip tests', skipTests)
 
@@ -156,7 +156,7 @@ const skipTests = (specFilename, skipTests) => {
 /**
  * Removes all .only and .skip from spec file
  */
-const runAllTests = specFilename => {
+export const runAllTests = specFilename => {
   console.log('enable all tests in spec', specFilename)
 
   const source = fs.readFileSync(specFilename, 'utf8')
@@ -191,12 +191,12 @@ const runAllTests = specFilename => {
   fs.writeFileSync(specFilename, output, 'utf8')
 }
 
-module.exports = {
-  onlyTests,
-  skipTests,
-  runAllTests
-}
+// module.exports = {
+//   onlyTests,
+//   skipTests,
+//   runAllTests
+// }
 
-if (!module.parent) {
-  onlyTests('./cypress/integration/spec.js', [['works b']])
-}
+// if (!module.parent) {
+//   onlyTests('./cypress/integration/spec.js', [['works b']])
+// }

@@ -73,12 +73,14 @@ after(() => {
   // TODO auto retry until there are .runnable-title elements present
   setTimeout(() => {
     console.log('after all tests')
+    // @ts-ignore
     const runnable = cy.state('runnable')
     const root = getRootSuite(runnable)
     console.log(root)
     const titles = getTests(root)
     console.log(titles)
     titles.forEach(title => {
+      // @ts-ignore
       const $runnableTitle = Cypress.$.find(
         `.runnable-title:contains('${title}')`
       )

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "cypress run",
     "semantic-release": "semantic-release",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "build": "tsc --skipLibCheck"
   },
   "keywords": [],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
@@ -18,14 +19,16 @@
     "ramda": "0.26.1"
   },
   "devDependencies": {
+    "@types/node": "10.12.18",
     "cypress": "3.1.4",
-    "semantic-release": "^15.13.3"
+    "semantic-release": "^15.13.3",
+    "typescript": "3.2.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/bahmutov/cypress-skip-and-only-ui.git"
   },
   "files": [
-    "src"
+    "*.js"
   ]
 }

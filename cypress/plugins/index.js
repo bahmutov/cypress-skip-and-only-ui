@@ -1,4 +1,4 @@
-const task = require('../../src/task')
+const task = require('../../task')
 
 // in this example, we only have our tasks, but if you had object with other tasks
 // just merge the two
