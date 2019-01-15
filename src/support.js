@@ -62,7 +62,9 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
     </span>
   )
 
-  const $buttons = Cypress.$('<span class="only-skip" />')[0]
+  const $buttons = Cypress.$(
+    '<span class="only-skip" style="margin-left: 1em" />'
+  )[0]
   $runnableTitle.after($buttons)
   ReactDOM.render(buttons, $buttons)
 }

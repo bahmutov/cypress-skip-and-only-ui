@@ -1,34 +1,9 @@
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
+const task = require('../../src/task')
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-const { onlyTests, skipTests, runAllTests } = require('../../src/utils')
+// in this example, we only have our tasks, but if you had object with other tasks
+// just merge the two
+// const allTasks = Object.assign({}, aTask, task)
 
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-  on('task', {
-    onlyTests: ({ filename, title }) => {
-      onlyTests(filename, [title])
-      return null
-    },
-
-    skipTests: ({ filename, title }) => {
-      skipTests(filename, [title])
-      return null
-    },
-
-    allTests: ({ filename, title }) => {
-      runAllTests(filename, [title])
-      return null
-    }
-  })
+  on('task', task)
 }
