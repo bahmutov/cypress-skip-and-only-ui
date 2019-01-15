@@ -1,4 +1,4 @@
-const { onlyTests, skipTests, runAllTests } = require('./utils')
+import { onlyTests, runAllTests, skipTests } from './utils';
 
 module.exports = {
   onlyTests: ({ filename, title }) => {
@@ -11,8 +11,8 @@ module.exports = {
     return null
   },
 
-  allTests: ({ filename, title }) => {
-    runAllTests(filename, [title])
+  allTests: ({ filename }) => {
+    runAllTests(filename)
     return null
   }
 }

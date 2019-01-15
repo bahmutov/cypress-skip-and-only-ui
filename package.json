@@ -7,7 +7,7 @@
     "test": "cypress run",
     "semantic-release": "semantic-release",
     "cy:open": "cypress open",
-    "build": "tsc"
+    "build": "tsc --skipLibCheck"
   },
   "keywords": [],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
@@ -29,6 +29,6 @@
     "url": "https://github.com/bahmutov/cypress-skip-and-only-ui.git"
   },
   "files": [
-    "src"
+    "*.js"
   ]
 }
