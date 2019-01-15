@@ -11,12 +11,14 @@
   "keywords": [],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
   "license": "ISC",
-  "devDependencies": {
-    "cypress": "3.1.4",
+  "dependencies": {
     "falafel": "2.1.0",
-    "ramda": "0.26.1",
     "react": "16.7.0",
     "react-dom": "16.7.0",
+    "ramda": "0.26.1"
+  },
+  "devDependencies": {
+    "cypress": "3.1.4",
     "semantic-release": "^15.13.3"
   },
   "repository": {
