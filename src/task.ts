@@ -1,4 +1,4 @@
-import { onlyTests, runAllTests, skipTests } from './utils';
+import { onlyTests, runAllTests, skipTests } from './task-utils';
 
 module.exports = {
   onlyTests: ({ filename, title }) => {

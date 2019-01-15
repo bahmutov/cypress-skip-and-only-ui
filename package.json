@@ -7,7 +7,8 @@
     "test": "cypress run",
     "semantic-release": "semantic-release",
     "cy:open": "cypress open",
-    "build": "tsc --skipLibCheck"
+    "build": "tsc --skipLibCheck",
+    "watch": "tsc --skipLibCheck --watch"
   },
   "keywords": [],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",

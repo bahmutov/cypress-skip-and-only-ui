@@ -1,20 +1,9 @@
 /// <reference types="cypress" />
 
+import { getRootSuite, getTests } from './support-utils';
+
 const React = require('react')
 const ReactDOM = require('react-dom')
-
-const getRootSuite = runnable => {
-  if (runnable.parent) {
-    return getRootSuite(runnable.parent)
-  }
-  return runnable
-}
-
-// TODO return all nested test titles
-// TODO return test titles as arrays
-const getTests = rootRunnable => {
-  return Cypress._.map(rootRunnable.tests, 'title')
-}
 
 const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   const onClickSkip = () => {
@@ -76,9 +65,12 @@ after(() => {
     // @ts-ignore
     const runnable = cy.state('runnable')
     const root = getRootSuite(runnable)
-    console.log(root)
+    // console.log(root)
     const titles = getTests(root)
-    console.log(titles)
+    // console.table(titles)
+    const humanTitles = titles.map(title => title.join(' - '))
+    console.log(humanTitles.join('\n'))
+
     titles.forEach(title => {
       // @ts-ignore
       const $runnableTitle = Cypress.$.find(
