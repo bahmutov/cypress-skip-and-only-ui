@@ -10,7 +10,7 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
     console.log('onClickSkip', title, spec)
     cy.task('skipTests', {
       filename: spec.absolute,
-      title: [title]
+      title: title
     })
   }
 
@@ -18,7 +18,7 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
     console.log('onClickOnly', title, spec)
     cy.task('onlyTests', {
       filename: spec.absolute,
-      title: [title]
+      title: title
     })
   }
   const onNormal = () => {
@@ -26,7 +26,7 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
 
     cy.task('allTests', {
       filename: spec.absolute,
-      title: [title]
+      title: title
     })
   }
 
@@ -62,6 +62,17 @@ after(() => {
   // TODO auto retry until there are .runnable-title elements present
   setTimeout(() => {
     console.log('after all tests')
+    const $ = Cypress.$
+
+    const findParentTitles = (rt, title = []) => {
+      title.push(rt.textContent)
+      const $parent = $(rt).parents('li.suite').find('.collapsible-header > .runnable-title')
+      if ($parent.length && $parent[0] !== rt) {
+        return findParentTitles($parent[0], title)
+      }
+      return title
+    }
+
     // @ts-ignore
     const runnable = cy.state('runnable')
     const root = getRootSuite(runnable)
@@ -71,17 +82,32 @@ after(() => {
     const humanTitles = titles.map(title => title.join(' - '))
     console.log(humanTitles.join('\n'))
 
-    titles.forEach(title => {
-      // @ts-ignore
-      const $runnableTitle = Cypress.$.find(
-        `.runnable-title:contains('${title}')`
-      )
-      if (!$runnableTitle.length) {
-        return
+    // @ts-ignore
+    $.find('.runnable-title').map(rt => {
+      const uiTitle = findParentTitles(rt) || []
+      uiTitle.reverse()
+      console.log('ui title', uiTitle)
+
+      if (titles.some(testTitle => Cypress._.isEqual(testTitle, uiTitle))) {
+        console.log('found matching test', uiTitle)
+        addOnlySkipButtons(rt, uiTitle, Cypress.spec)
       }
-      console.log($runnableTitle)
-      addOnlySkipButtons($runnableTitle[0], title, Cypress.spec)
     })
+
+    // console.log('UI titles')
+    // console.log(fullTitles.join('\n'))
+
+    // titles.forEach(title => {
+    //   // @ts-ignore
+    //   const $runnableTitle = $.find(
+    //     `.runnable-title:contains('${title}')`
+    //   )
+    //   if (!$runnableTitle.length) {
+    //     return
+    //   }
+    //   console.log($runnableTitle)
+    //   addOnlySkipButtons($runnableTitle[0], title, Cypress.spec)
+    // })
   }, 500)
   // Cypress.$.find('.runnable-title')
 })
