@@ -1,6 +1,8 @@
-# cypress-skip-and-only-ui [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui)
+# cypress-skip-and-only-ui
 
 > Client-side buttons to run a single test or skip it for Cypress test runner
+
+[![NPM][npm-icon] ][npm-url] [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui)
 
 ![Cypress skip and only](img/skip-and-only.gif)
 
@@ -73,3 +75,6 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+[npm-icon]: https://nodei.co/npm/cypress-skip-and-only-ui.svg?downloads=true
+[npm-url]: https://npmjs.org/package/cypress-skip-and-only-ui
