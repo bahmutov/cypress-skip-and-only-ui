@@ -15,13 +15,13 @@ npm i -D cypress-skip-and-only-ui
 Require from your `cypress/support/index.js`
 
 ```js
-require('cypress-skip-and-only-ui/src/support')
+require('cypress-skip-and-only-ui/support')
 ```
 
 Require and register task from `cypress/plugins/index.js`
 
 ```js
-const task = require('cypress-skip-and-only-ui/src/task')
+const task = require('cypress-skip-and-only-ui/task')
 module.exports = (on, config) => {
   on('task', task)
 }
@@ -31,7 +31,7 @@ Note: if you have other tasks already, just merge the objects before registering
 
 ```js
 const otherTask = { ... }
-const task = require('cypress-skip-and-only-ui/src/task')
+const task = require('cypress-skip-and-only-ui/task')
 const all = Object.assign({}, otherTask, task)
 module.exports = (on, config) => {
   on('task', all)
