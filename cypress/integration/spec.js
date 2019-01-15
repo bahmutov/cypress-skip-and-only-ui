@@ -1,5 +1,5 @@
 it('works a', () => {})
-it('works b', () => {
+it.skip('works b', () => {
   throw new Error('nope')
 })
 it('works c', () => {})
