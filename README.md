@@ -1,8 +1,8 @@
-# cypress-skip-and-only-ui
+# cypress-skip-and-only-ui [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > Client-side buttons to run a single test or skip it for Cypress test runner
 
-[![NPM][npm-icon] ][npm-url] [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui)
+[![NPM][npm-icon] ][npm-url]
 
 ![Cypress skip and only](img/skip-and-only.gif)
 
@@ -78,3 +78,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 [npm-icon]: https://nodei.co/npm/cypress-skip-and-only-ui.svg?downloads=true
 [npm-url]: https://npmjs.org/package/cypress-skip-and-only-ui
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
