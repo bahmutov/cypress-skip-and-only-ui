@@ -1,7 +1,7 @@
 {
   "name": "cypress-skip-and-only-ui",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "Client-side buttons to run a single test or skip it for Cypress test runner",
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
@@ -10,7 +10,11 @@
     "build": "tsc --skipLibCheck",
     "watch": "tsc --skipLibCheck --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "cypress",
+    "cypress-io",
+    "cypress-plugin"
+  ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
   "license": "ISC",
   "dependencies": {
