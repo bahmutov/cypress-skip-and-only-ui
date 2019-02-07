@@ -19,8 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "falafel": "2.1.0",
-    "react": "16.8.0",
-    "react-dom": "16.8.0",
+    "react": "16.8.1",
+    "react-dom": "16.8.1",
     "ramda": "0.26.1"
   },
   "devDependencies": {
