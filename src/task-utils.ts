@@ -95,7 +95,14 @@ export const onlyTests = (specFilename, leaveTests) => {
       node.update('it.only' + node.source().substr(7))
     }
   }
-  const output = falafel(source, skipAllTests)
+  let output;
+  try {
+    output = falafel(source, skipAllTests)
+  } catch(err) {
+    if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
+      output = falafel(source, { sourceType: "module" }, skipAllTests)
+    }
+  }
   // console.log(output)
   fs.writeFileSync(specFilename, output, 'utf8')
 }
@@ -148,7 +155,14 @@ export const skipTests = (specFilename, skipTests) => {
       // nothing to do
     }
   }
-  const output = falafel(source, skipAllTests)
+  let output;
+  try {
+    output = falafel(source, skipAllTests)
+  } catch(err) {
+    if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
+      output = falafel(source, { sourceType: "module" }, skipAllTests)
+    }
+  }
   // console.log(output)
   fs.writeFileSync(specFilename, output, 'utf8')
 }
@@ -186,7 +200,14 @@ export const runAllTests = specFilename => {
       node.update('it' + node.source().substr(7))
     }
   }
-  const output = falafel(source, enableAllTests)
+  let output;
+  try {
+    output = falafel(source, enableAllTests)
+  } catch(err) {
+    if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
+      output = falafel(source, { sourceType: "module" }, enableAllTests)
+    }
+  }
   // console.log(output)
   fs.writeFileSync(specFilename, output, 'utf8')
 }
