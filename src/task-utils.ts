@@ -47,6 +47,13 @@ const isItSkip = node => {
 
 const getItsName = node => node.arguments[0].value
 
+const parseAndEdit = (source, callback, { module = false } = {}) =>
+  falafel(
+    source,
+    { sourceType: module ? "module" : "script", ecmaVersion: 9 },
+    callback
+  )
+
 /**
  * Given a spec filename and name of a test, sets "it.only" for give list of tests.
  */
@@ -97,10 +104,10 @@ export const onlyTests = (specFilename, leaveTests) => {
   }
   let output;
   try {
-    output = falafel(source, skipAllTests)
+    output = parseAndEdit(source, skipAllTests)
   } catch(err) {
     if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
-      output = falafel(source, { sourceType: "module" }, skipAllTests)
+      output = parseAndEdit(source, skipAllTests, { module: true })
     }
   }
   // console.log(output)
@@ -157,10 +164,10 @@ export const skipTests = (specFilename, skipTests) => {
   }
   let output;
   try {
-    output = falafel(source, skipAllTests)
+    output = parseAndEdit(source, skipAllTests)
   } catch(err) {
     if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
-      output = falafel(source, { sourceType: "module" }, skipAllTests)
+      output = parseAndEdit(source, skipAllTests, { module: true })
     }
   }
   // console.log(output)
@@ -202,10 +209,10 @@ export const runAllTests = specFilename => {
   }
   let output;
   try {
-    output = falafel(source, enableAllTests)
+    output = parseAndEdit(source, enableAllTests)
   } catch(err) {
     if (err.stack.includes("'import' and 'export' may appear only with 'sourceType: module'")) {
-      output = falafel(source, { sourceType: "module" }, enableAllTests)
+      output = parseAndEdit(source, enableAllTests, { module: true })
     }
   }
   // console.log(output)
