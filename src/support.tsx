@@ -65,7 +65,7 @@ after(() => {
     const $ = Cypress.$
 
     const findParentTitles = (rt, title = []) => {
-      title.push(rt.textContent)
+      title.push(rt.firstChild.textContent)
 
       const $parent = $(rt).parents('li.suite')
 
