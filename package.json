@@ -27,7 +27,7 @@
     "@types/node": "10.12.24",
     "cypress": "3.3.2",
     "semantic-release": "15.13.18",
-    "typescript": "3.5.2"
+    "typescript": "3.5.3"
   },
   "repository": {
     "type": "git",
