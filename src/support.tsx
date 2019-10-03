@@ -7,7 +7,7 @@ const ReactDOM = require('react-dom')
 
 const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   const onClickSkip = () => {
-    console.log('onClickSkip', title, spec)
+    // console.log('onClickSkip', title, spec)
     cy.task('skipTests', {
       filename: spec.absolute,
       title: title
@@ -15,14 +15,14 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
   }
 
   const onClickOnly = () => {
-    console.log('onClickOnly', title, spec)
+    // console.log('onClickOnly', title, spec)
     cy.task('onlyTests', {
       filename: spec.absolute,
       title: title
     })
   }
   const onNormal = () => {
-    console.log('onNormal', title, spec)
+    // console.log('onNormal', title, spec)
 
     cy.task('allTests', {
       filename: spec.absolute,
@@ -61,7 +61,7 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
 after(() => {
   // TODO auto retry until there are .runnable-title elements present
   setTimeout(() => {
-    console.log('after all tests')
+    // console.log('after all tests')
     const $ = Cypress.$
 
     const findParentTitles = (rt, title = []) => {
@@ -87,16 +87,16 @@ after(() => {
     const titles = getTests(root)
     // console.table(titles)
     const humanTitles = titles.map(title => title.join(' - '))
-    console.log(humanTitles.join('\n'))
+    // console.log(humanTitles.join('\n'))
 
     // @ts-ignore
     $.find('.runnable-title').map(rt => {
       const uiTitle = findParentTitles(rt) || []
       uiTitle.reverse()
-      console.log('ui title', uiTitle)
+      // console.log('ui title', uiTitle)
 
       if (titles.some(testTitle => Cypress._.isEqual(testTitle, uiTitle))) {
-        console.log('found matching test', uiTitle)
+        // console.log('found matching test', uiTitle)
         addOnlySkipButtons(rt, uiTitle, Cypress.spec)
       }
     })
