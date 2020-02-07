@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "10.12.24",
-    "cypress": "3.8.3",
+    "cypress": "4.0.0",
     "semantic-release": "17.0.2",
     "typescript": "3.7.5"
   },
