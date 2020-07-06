@@ -71,7 +71,7 @@ after(() => {
 
       if ($parent.length && $parent[0] !== rt) {
         $parent.each((k, el) => {
-          const titleEl = el.querySelector('.collapsible-header > .runnable-title')
+          const titleEl = el.querySelector("span.runnable-title")
           if (titleEl !== rt) {
             title.push(titleEl.textContent)
           }
