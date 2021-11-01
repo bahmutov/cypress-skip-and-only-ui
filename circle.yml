@@ -1,10 +1,10 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.4.0
+  cypress: cypress-io/cypress@1.29.0
 
 jobs:
   release:
-    executor: cypress/base-10
+    executor: cypress/base-14
     steps:
       - attach_workspace:
           at: ~/
