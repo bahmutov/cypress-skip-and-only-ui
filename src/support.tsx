@@ -6,7 +6,8 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 
 const addOnlySkipButtons = ($runnableTitle, title, spec) => {
-  const onClickSkip = () => {
+  const onClickSkip = (event) => {
+    event.stopPropagation();
     console.log('onClickSkip', title, spec)
     cy.task('skipTests', {
       filename: spec.absolute,
@@ -14,14 +15,16 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
     })
   }
 
-  const onClickOnly = () => {
+  const onClickOnly = (event) => {
+    event.stopPropagation();
     console.log('onClickOnly', title, spec)
     cy.task('onlyTests', {
       filename: spec.absolute,
       title: title
     })
   }
-  const onNormal = () => {
+  const onNormal = (event) => {
+    event.stopPropagation();
     console.log('onNormal', title, spec)
 
     cy.task('allTests', {
@@ -34,7 +37,7 @@ const addOnlySkipButtons = ($runnableTitle, title, spec) => {
     <span>
       {' '}
       <i
-        className='fa fa-circle-o-notch'
+        className='fa fa-circle-notch'
         title='Skip this test'
         onClick={onClickSkip}
       />{' '}
@@ -71,7 +74,7 @@ after(() => {
 
       if ($parent.length && $parent[0] !== rt) {
         $parent.each((k, el) => {
-          const titleEl = el.querySelector('.collapsible-header > .runnable-title')
+          const titleEl = el.querySelector("span.runnable-title")
           if (titleEl !== rt) {
             title.push(titleEl.textContent)
           }

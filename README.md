@@ -32,9 +32,11 @@ Note: if you have other tasks already, just merge the objects before registering
 ```js
 const otherTask = { ... }
 const task = require('cypress-skip-and-only-ui/task')
-const all = Object.assign({}, otherTask, task)
 module.exports = (on, config) => {
-  on('task', all)
+  on('task', {
+    otherTask,
+    task
+  })
 }
 ```
 
