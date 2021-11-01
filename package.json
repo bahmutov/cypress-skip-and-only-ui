@@ -18,16 +18,16 @@
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
   "license": "ISC",
   "dependencies": {
-    "falafel": "2.1.0",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
-    "ramda": "0.26.1"
+    "falafel": "2.2.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "ramda": "0.27.1"
   },
   "devDependencies": {
-    "@types/node": "10.12.24",
-    "cypress": "3.4.1",
-    "semantic-release": "15.13.24",
-    "typescript": "3.6.3"
+    "@types/node": "16.11.6",
+    "cypress": "8.7.0",
+    "semantic-release": "^18.0.0",
+    "typescript": "4.4.4"
   },
   "repository": {
     "type": "git",

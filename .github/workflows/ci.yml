@@ -1,0 +1,22 @@
+name: ci
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      # https://github.com/cypress-io/github-action
+      - name: Run tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+
+      - name: Semantic Release 🚀
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
