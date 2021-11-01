@@ -2,23 +2,8 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.29.0
 
-jobs:
-  release:
-    executor: cypress/base-14
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: npm run semantic-release
-
 workflows:
   build:
     jobs:
       - cypress/run:
           build: npm run build
-      - release:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - cypress/run
