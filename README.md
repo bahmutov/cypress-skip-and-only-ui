@@ -1,4 +1,4 @@
-# cypress-skip-and-only-ui [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui)
+# cypress-skip-and-only-ui [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-skip-and-only-ui) ![cypress version](https://img.shields.io/badge/cypress-8.7.0-brightgreen)
 
 > Client-side buttons to run a single test or skip it for Cypress test runner
 
