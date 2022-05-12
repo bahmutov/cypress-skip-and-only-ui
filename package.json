@@ -18,7 +18,7 @@
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com/)",
   "license": "ISC",
   "dependencies": {
-    "falafel": "2.2.4",
+    "falafel": "2.2.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "ramda": "0.28.0"
