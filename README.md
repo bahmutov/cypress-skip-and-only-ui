@@ -34,8 +34,8 @@ const otherTask = { ... }
 const task = require('cypress-skip-and-only-ui/task')
 module.exports = (on, config) => {
   on('task', {
-    otherTask,
-    task
+    ...otherTask,
+    ...task
   })
 }
 ```
