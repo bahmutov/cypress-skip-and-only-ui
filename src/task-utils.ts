@@ -52,7 +52,7 @@ const parseAndEdit = (source, callback, { module = false } = {}) =>
     source,
     { sourceType: module ? "module" : "script", ecmaVersion: 9 },
     callback
-  )
+  ).toString();
 
 /**
  * Given a spec filename and name of a test, sets "it.only" for give list of tests.
