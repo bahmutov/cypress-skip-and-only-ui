@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress'
-const task = require('./task');
+import task from './task';
 
 export default defineConfig({
   e2e: {
