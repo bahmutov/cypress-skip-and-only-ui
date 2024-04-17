@@ -1,4 +1,6 @@
+.idea
 node_modules/
 cypress/screenshots
 cypress/videos
 *.js
+*.d.ts
