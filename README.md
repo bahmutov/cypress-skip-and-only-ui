@@ -12,30 +12,38 @@
 npm i -D cypress-skip-and-only-ui
 ```
 
-Require from your `cypress/support/index.js`
+Import from your `cypress/support/e2e.js`
 
 ```js
-require('cypress-skip-and-only-ui/support')
+import 'cypress-skip-and-only-ui/support';
 ```
 
-Require and register task from `cypress/plugins/index.js`
+Import and register task from `cypress.config.ts` / `cypress.config.js`
 
 ```js
-const task = require('cypress-skip-and-only-ui/task')
-module.exports = (on, config) => {
-  on('task', task)
-}
+import { defineConfig } from 'cypress'
+import skipAndOnlyUiTasks from 'cypress-skip-and-only-ui/task';
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      on('task', skipAndOnlyUiTasks)
+    }
+  }
+});
 ```
 
 Note: if you have other tasks already, just merge the objects before registering
 
 ```js
-const otherTask = { ... }
-const task = require('cypress-skip-and-only-ui/task')
+import { defineConfig } from 'cypress'
+import skipAndOnlyUiTasks from 'cypress-skip-and-only-ui/task';
+
+const otherTasks = [{ ... }]
 module.exports = (on, config) => {
   on('task', {
-    otherTask,
-    task
+    ...otherTasks,
+    ...skipAndOnlyUiTasks
   })
 }
 ```
