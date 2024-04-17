@@ -34,7 +34,8 @@
     "url": "https://github.com/bahmutov/cypress-skip-and-only-ui.git"
   },
   "files": [
-    "*.js"
+    "*.js",
+    "*.d.ts"
   ],
   "types": "*.d.ts"
 }
