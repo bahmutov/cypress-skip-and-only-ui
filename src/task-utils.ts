@@ -226,5 +226,5 @@ export const runAllTests = specFilename => {
 // }
 
 // if (!module.parent) {
-//   onlyTests('./cypress/integration/spec.js', [['works b']])
+//   onlyTests('./cypress/e2e/spec.cy.js', [['works b']])
 // }
