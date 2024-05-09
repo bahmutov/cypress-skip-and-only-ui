@@ -52,7 +52,7 @@ const parseAndEdit = (source, callback, { module = false } = {}) =>
     source,
     { sourceType: module ? "module" : "script", ecmaVersion: 9 },
     callback
-  )
+  ).toString();
 
 /**
  * Given a spec filename and name of a test, sets "it.only" for give list of tests.
@@ -226,5 +226,5 @@ export const runAllTests = specFilename => {
 // }
 
 // if (!module.parent) {
-//   onlyTests('./cypress/integration/spec.js', [['works b']])
+//   onlyTests('./cypress/e2e/spec.cy.js', [['works b']])
 // }
