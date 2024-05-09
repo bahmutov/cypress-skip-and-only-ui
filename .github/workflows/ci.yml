@@ -5,16 +5,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # https://github.com/cypress-io/github-action
       - name: Run tests 🧪
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           build: npm run build
 
       - name: Semantic Release 🚀
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v4
         with:
           branch: master
         env:
