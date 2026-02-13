@@ -24,7 +24,7 @@
     "ramda": "0.29.1"
   },
   "devDependencies": {
-    "@types/node": "18.11.11",
+    "@types/node": "18.11.19",
     "cypress": "13.7.3",
     "semantic-release": "23.0.8",
     "typescript": "5.4.5"
